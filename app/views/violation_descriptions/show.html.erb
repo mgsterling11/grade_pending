@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Violation code:</strong>
+  <%= @violation_description.violation_code %>
+</p>
+
+<p>
+  <strong>Violation description:</strong>
+  <%= @violation_description.violation_description %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @violation_description.restaurant_id %>
+</p>
+
+<%= link_to 'Edit', edit_violation_description_path(@violation_description) %> |
+<%= link_to 'Back', violation_descriptions_path %>
