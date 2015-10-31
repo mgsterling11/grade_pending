@@ -4,15 +4,47 @@
       <strong>Name:</strong>
       <%= @restaurant.name %>
     </p>
+    
+    <p>
+      <strong>Cuisine:</strong>
+      <%= @cuisine.cuisine_description %>
+    </p>
 
     <p>
       <strong>Inspection date:</strong>
       <%= @restaurant.inspection_date %>
     </p>
 
+
     <p>
       <strong>Grade:</strong>
       <%= @restaurant.grade %>
+    </p>
+
+    <p>
+      <strong>Violation(s):</strong>
+      <%= @violations.violation_description %>
+      <strong>Violation Code(s):</strong>
+      <%= @violations.violation_code %>
+    </p>
+
+    <p>
+      <strong>Violation Code(s):</strong>
+      <%= @violations.violation_code %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @address.building %>
+      <%= @address.street %>
+      <%= @address.boro %>
+      <%= @address.zipcode %>
+      <%= @address.phone %>
+    </p>
+     
+    <p>
+      <strong>Phone:</strong>
+      <%= @address.phone %>
     </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
