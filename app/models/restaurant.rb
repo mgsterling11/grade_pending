@@ -4,13 +4,12 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string
-#  address         :string
 #  inspection_date :string
 #  grade           :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  restaurant_id   :integer
 #
-
 
 class Restaurant < ActiveRecord::Base
   has_one :violation_description

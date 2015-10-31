@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  # only: [:show, :edit, :update, :destroy]
+   # before_action :set_restaurant,
 
   # GET /restaurants
   # GET /restaurants.json
@@ -10,6 +11,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    binding.pry
+    @restaurant = Restaurant.find_by(restaurant_id: params["id"]) 
   end
 
   # GET /restaurants/new
@@ -63,9 +66,9 @@ class RestaurantsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_restaurant
-      @restaurant = Restaurant.find(params[:id])
-    end
+    # def set_restaurant
+    #   @restaurant = Restaurant.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
