@@ -1,27 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<ul>
-  <li>
-<%= @search_results.each do |restaurant| %>
     <p>
       <strong>Name:</strong>
-      <%= restaurant.name %>
+      <%= @restaurant.name %>
     </p>
 
     <p>
       <strong>Inspection date:</strong>
-      <%= restaurant.inspection_date %>
+      <%= @restaurant.inspection_date %>
     </p>
 
     <p>
       <strong>Grade:</strong>
-      <%= restaurant.grade %>
+      <%= @restaurant.grade %>
     </p>
-
-    <%end%>
-
-  <li>
-</ul>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

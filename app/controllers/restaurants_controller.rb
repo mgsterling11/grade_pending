@@ -13,6 +13,9 @@ class RestaurantsController < ApplicationController
   def show
     binding.pry
     @restaurant = Restaurant.find_by(restaurant_id: params["id"]) 
+    @address = Address.find_by(restaurant_id: params["id"]) 
+    @cuisine = CuisineType.find_by(restaurant_id: params["id"]) 
+    @violations = ViolationDescription.find_by(restaurant_id: params["id"]) 
   end
 
   # GET /restaurants/new
