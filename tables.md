@@ -1,28 +1,32 @@
-  1) Restaurants
-    (has_one :cuisine_description)
-    (has_one :address)
-    (has_one :violation_description)
-    - Name
-    - Address
-    - Inspection date
-    - grade name (A, B, C, grade Pending, closed)
+  create_table "addresses", force: :cascade do |t|
+    t.string   "boro"
+    t.string   "building"
+    t.string   "street"
+    t.string   "zipcode"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-  2) Violation description  
-    (belongs_to :restaurant)
-    - Violation code
-    - Violation description
-    - Restaurant Id
+  create_table "cuisine_types", force: :cascade do |t|
+    t.string   "cuisine_description"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
-  3) ADDRESS
-    (belongs_to :restaurant)
-    - boro
-    - building
-    - street 
-    - zipcode
-    - phone
-    -restaurant_ID
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "inspection_date"
+    t.string   "grade"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
-  4) - cuisine description
-    (belongs_to :restaurant)
-    -cuisine description
-    -restaurant ID
+  create_table "violation_descriptions", force: :cascade do |t|
+    t.string   "violation_code"
+    t.string   "violation_description"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
