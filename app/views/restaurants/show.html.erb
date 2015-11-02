@@ -23,29 +23,25 @@
 
     <p>
       <strong>Violation(s):</strong>
-      <%= @restaurant.violation_descriptions.violation_description %>
+      <%= @restaurant.violation_description.violation_description %>
       <strong>Violation Code(s):</strong>
-      <%= @restaurant.violation_code %>
+      <%= @restaurant.violation_description.violation_code %>
     </p>
 
     <p>
       <strong>Violation Code(s):</strong>
-      <%= @violations.violation_code %>
+      <%= @restaurant.violation_description.violation_code %>
     </p>
 
     <p>
       <strong>Address:</strong>
-      <%= @address.building %>
-      <%= @address.street %>
-      <%= @address.boro %>
-      <%= @address.zipcode %>
-      <%= @address.phone %>
+      <%= @restaurant.address.building %>
+      <%= @restaurant.address.street %>
+      <%= @restaurant.address.boro %>
+      <%= @restaurant.address.zipcode %>
     </p>
      
     <p>
       <strong>Phone:</strong>
-      <%= @address.phone %>
+      <%= @restaurant.address.phone %>
     </p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
