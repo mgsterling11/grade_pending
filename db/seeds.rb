@@ -13,7 +13,7 @@ require 'pry'
 require 'json'
 require 'rest-client'
 
-binding.pry
+
 
 data = RestClient::Request.execute(method: :get, url:'http://data.cityofnewyork.us/resource/9w7m-hzhe.json')
 test_data = JSON.parse(data)
@@ -46,7 +46,7 @@ violation_description = ViolationDescription.new
 #  "violation_code",
 #  "violation_description",
 #  "zipcode"]
-binding.pry
+
 
 
 

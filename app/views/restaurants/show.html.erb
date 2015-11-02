@@ -7,7 +7,7 @@
     
     <p>
       <strong>Cuisine:</strong>
-      <%= @cuisine.cuisine_description %>
+      <%= @restaurant.cuisine_type.cuisine_description %>
     </p>
 
     <p>
@@ -23,9 +23,9 @@
 
     <p>
       <strong>Violation(s):</strong>
-      <%= @violations.violation_description %>
+      <%= @restaurant.violation_descriptions.violation_description %>
       <strong>Violation Code(s):</strong>
-      <%= @violations.violation_code %>
+      <%= @restaurant.violation_code %>
     </p>
 
     <p>
