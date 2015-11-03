@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<ul>
+    
+    <% @restaurants_array.each do |restaurant| %>
+  <li>
+    <p>
+      <br>
+      <li>
+      <strong>Name:</strong>
+      <%= restaurant.name %>
+      <strong>Grade:</strong>
+      <%= restaurant.grade %>
+      <strong>Inspection_date:</strong>
+      <%= restaurant.inspection_date %>
+      <strong>Cuisine:</strong>
+      <%= restaurant.cuisine_type.cuisine_description %>
+      <strong>Violation(s):</strong>
+      <%= restaurant.violation_description.violation_description %>
+      <strong>Violation Code(s):</strong>
+      <%= restaurant.violation_description.violation_code %>
+      <strong>Address:</strong>
+      <%= restaurant.address.building %>
+      <%= restaurant.address.street %>
+      <%= restaurant.address.boro %>
+      <%= restaurant.address.zipcode %>
+      <strong>Phone:</strong>
+      <%= restaurant.address.phone %>
+    </li>
+    </p>
+    </li>
+    
+    <%end%>
+  </ul>
+
+
+    

@@ -1,0 +1,18 @@
+
+<h1>GradePending</h1>
+<h3>... a guide to New York restaurant inspection grades, violations, &amp; good eats ...</h3>
+    
+<h2>Welcome to GradePending. Search for restaurants by name, type of food, inspection grade, and address. All of New York's restaurants are a click away.</h2>
+            
+<p>Happiness is eating with peace of mind...</p>
+
+
+
+<% render 'form'%>
+
+<%= form_tag('/search', method: :get) do %>
+  <%= text_field_tag(:keyword) %>
+  <%= submit_tag("Search") %>
+<% end %> 
+
+         
