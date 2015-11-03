@@ -14,23 +14,20 @@ class Search
       
       if @result == []
         @restaurants = Restaurant.all
-        @result = @restaurants.where("NAME LIKE '%#{word}%'")  
+        @result = @restaurants.where("NAME LIKE '%#{word}%'") 
       end
-      
+
+      if @result == []
+        @restaurants = ViolationDescription.all
+        @result = @restaurants.where("VIOLATION_DESCRIPTION LIKE '%#{word}%'")  
+      end
+           
       if @result == []
         @addresses = Address.all
         @result = @addresses.where("BUILDING LIKE '%#{word}%'" || "STREET LIKE '%#{word}%'")  
-      # elsif @result == []
-      #   @violations = ViolationDescription.all
-      #   @result = @violations.where("VIOLATION_DESCRIPTION LIKE '%#{word}%'")  
       else
         puts "error message"
       end
       @result
   end
-
-
-
-
-
 end
