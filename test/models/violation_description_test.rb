@@ -2,7 +2,7 @@
 #
 # Table name: violation_descriptions
 #
-#  id                    :integer          not null, primary key
+#  id                    :integer
 #  violation_code        :string
 #  violation_description :string
 #  restaurant_id         :integer
