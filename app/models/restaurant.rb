@@ -16,8 +16,5 @@ class Restaurant < ActiveRecord::Base
   has_one :address
   has_one :cuisine_type
 
-  
- 
-
-end
+  end
 
