@@ -1,3 +1,22 @@
+
+*= require boostrap
+*= require boostrap.min
+*= require stylish-portfolio
+*= require font-awesome.min
+*= require font-awesome
+*= require fontawesome-webfont.eot
+*= require fontawesome-webfont.svg
+*= require fontawesome-webfont.tff
+*= require fontawesome-webfont.woff
+*= require FontAwesome.otf
+*= require et-line-font
+*= require style
+*= require_tree
+*= require_self
+
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

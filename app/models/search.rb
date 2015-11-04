@@ -24,10 +24,11 @@ class Search
            
       if @result == []
         @addresses = Address.all
+        # binding.pry
         @result = @addresses.where("BUILDING LIKE '%#{word}%'" || "STREET LIKE '%#{word}%'")  
       else
         puts "error message"
       end
-      @result
+    @result
   end
 end
