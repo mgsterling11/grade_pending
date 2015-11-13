@@ -20,9 +20,7 @@ class Restaurant < ActiveRecord::Base
 
 
 
-
-   #### CREATE SINGLE RESTAURANT HASH METHODS #### => 
-##### METHOD TO SORT INSPECTION HASHES BY DATE              <----- DONE
+##### METHOD TO SORT INSPECTION HASHES BY DATE              
     def inspection_date(inspection)
       inspection_dates = test.map do |inspection|
         Time.parse(inspection["inspection_date"])
@@ -34,24 +32,25 @@ class Restaurant < ActiveRecord::Base
       end
     end
 
-## GRABS VIOLATION DESCRIPTIONS                             <----- DONE
+## GRABS VIOLATION DESCRIPTIONS                             
     def inspection_results(inspection)
       restaurant_violations = test.map do |restaurant|
         restaurant['violation_description']
       end
       restaurant_violations.compact!
+      restaurant_violations.uniq!
 
-      restaurant_violations.each do |result|
+      restaurant_violations.map do |result|
         restaurant['violation_description'] << result
-      end.uniq
+      end
     end
 
-#### GRABS boro                                              <----- DONE
+#### GRABS boro                                              
     def boro(inspection)
       restaurant['boro'] << test.first['boro']
     end
 
-#### GRABS building                                          <----- DONE
+#### GRABS building                                          
     def building(inspection)                                               
       restaurant['building'] << test.first['building'].strip
     end
@@ -61,18 +60,18 @@ class Restaurant < ActiveRecord::Base
       restaurant['cuisine_description'] << test.first['cuisine_description'].strip
     end
 
-##### GRABS dba                                             <----- DONE
+##### GRABS dba                                             
     def restaurant_name(inspection)                                               
       restaurant['dba'] << test.first['dba'].strip
     end
 
-#### GRABS PHONE                                            <----- DONE
+#### GRABS PHONE                                            
     def phone_num(inspection)    
       restaurant['phone'] << test.first['phone'].strip
       restaurant['phone'] = '(%s) %s-%s' % [restaurant['phone'][0,3], restaurant['phone'][3,3], restaurant['phone'][6,4]]
     end
 
-#### GRABS street                                          <----- DONE
+#### GRABS street                                         
     def street(inspection)                                               
       restaurant['street'] << test.first['street'].gsub('  ','').strip
     end
@@ -89,45 +88,42 @@ class Restaurant < ActiveRecord::Base
       end
     end
 
-#### GRABS zipcode                                          <----- DONE
+#### GRABS zipcode                                         
     def zipcode(inspection)                                               
       restaurant['zipcode'] << test.first['zipcode'].strip
     end
 
-    #### CREATE SINGLE RESTAURANT HASH METHODS ####
+#### GRABS restaurant grade                                        
+    def grade(inspection)                                               
+      grades = test.map do |result|
+        result['grade']
+      end
+      grades.compact!
+      grades.uniq!
+      grades.sort!
 
+      grades.each do |grade|
+        restaurant['grade'] << grade 
+      end
+    end
 
-
-
-
-
-##################### USE THIS TO FORMAT PHONE NUMBER VIA METHOD?
-  # def formatted_number(number)
-  #   if (number.length == 11 and digits[0] == '1')
-  #     number.shift
-  #   end
-
-  #   if (number.length == 10)
-  #     number = number.join
-  #     '(%s) %s-%s' % [restaurant['phone'][0,3], restaurant['phone'][3,3], restaurant['phone'][6,4]]
-  #   end
-  # end
 
 
 
 ###### EMPTY RESTAURANT HASH
-  # restaurant = {
-  #   "boro"=> "",
-  #   "building"=>"",
-  #   "cuisine_description"=>"",
-  #   "dba"=>"",
-  #   "inspection_date"=> [],
-  #   "phone"=>"",
-  #   "street"=>"",
-  #   "violation_code"=>[],
-  #   "violation_description"=>[],
-  #   "zipcode"=>""    
-  # }
+  restaurant = {
+    "boro"=> "",
+    "building"=>"",
+    "grade"=>[],
+    "cuisine_description"=>"",
+    "dba"=>"",
+    "inspection_date"=> [],
+    "phone"=>"",
+    "street"=>"",
+    "violation_code"=>[],
+    "violation_description"=>[],
+    "zipcode"=>""    
+  }
   
   
 
