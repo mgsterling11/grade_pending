@@ -33,6 +33,7 @@ gem 'json'
 gem 'rest-client'
 gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'time_diff'
 
 # gem 'rest-open-uri'
 # Use Capistrano for deployment

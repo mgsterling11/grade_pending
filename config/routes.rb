@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :cuisine_types
-  resources :violation_descriptions
-  resources :addresses
+  # resources :cuisine_types
+  # resources :violation_descriptions
+  # resources :addresses
   resources :restaurants
   get '/' => 'welcome#index' 
-  get '/search' => 'search#index'
+  get '/search' => 'search#show'
   get '/search/multiple_results' => 'search#multiple_results'
 
   get "log_out" => "sessions#destroy", :as => "log_out"

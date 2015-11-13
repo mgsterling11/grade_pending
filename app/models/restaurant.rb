@@ -16,86 +16,116 @@ class Restaurant < ActiveRecord::Base
   has_one :address
   has_one :cuisine_type
 
+  attr_accessor :restaurant
+
+  def initialize
+    @restaurant = {
+      "boro"=> "",
+      "building"=>"",
+      "grade"=>[],
+      "cuisine_description"=>"",
+      "dba"=>"",
+      "inspection_date"=> [],
+      "phone"=>"",
+      "street"=>"",
+      "violation_code"=>[],
+      "violation_description"=>[],
+      "zipcode"=>""    
+    }
+  end
+
+  def build_restaurant_hash(restaurant)
+    inspection_date(restaurant)
+    inspection_results(restaurant)
+    boro(restaurant)
+    building(restaurant)                                               
+    cuisine_description(restaurant)                                               
+    restaurant_name(restaurant)                                               
+    phone_num(restaurant)    
+    street(restaurant)                                               
+    violation_codes(restaurant)
+    zipcode(restaurant)                                               
+    grade(restaurant)
+    @restaurant
+  end
 
 
-
-
-##### METHOD TO SORT INSPECTION HASHES BY DATE              
-    def inspection_date(inspection)
-      inspection_dates = test.map do |inspection|
+##### SORTS INSPECTION HASHES BY DATE              
+    def inspection_date(restaurant)
+      inspection_dates = restaurant.map do |inspection|
         Time.parse(inspection["inspection_date"])
       end
       inspection_dates.uniq!.sort! { |a,b| b <=> a }
 
       inspection_dates.each do |result|
-        restaurant['inspection_date'] << result
+        @restaurant['inspection_date'] << result
       end
     end
 
 ## GRABS VIOLATION DESCRIPTIONS                             
-    def inspection_results(inspection)
-      restaurant_violations = test.map do |restaurant|
+    def inspection_results(restaurant)
+      restaurant_violations = restaurant.map do |restaurant|
         restaurant['violation_description']
       end
       restaurant_violations.compact!
       restaurant_violations.uniq!
 
       restaurant_violations.map do |result|
-        restaurant['violation_description'] << result
+        @restaurant['violation_description'] << result
       end
     end
 
 #### GRABS boro                                              
-    def boro(inspection)
-      restaurant['boro'] << test.first['boro']
+    def boro(restaurant)
+      @restaurant['boro'] << restaurant.first['boro']
     end
 
 #### GRABS building                                          
-    def building(inspection)                                               
-      restaurant['building'] << test.first['building'].strip
+    def building(restaurant)                                               
+      @restaurant['building'] << restaurant.first['building'].strip
     end
 
 #### GRABS CUISINE DESCRIPTION
-    def cuisine_description(inspection)                                               
-      restaurant['cuisine_description'] << test.first['cuisine_description'].strip
+    def cuisine_description(restaurant)                                               
+      @restaurant['cuisine_description'] << restaurant.first['cuisine_description'].strip
     end
 
 ##### GRABS dba                                             
-    def restaurant_name(inspection)                                               
-      restaurant['dba'] << test.first['dba'].strip
+    def restaurant_name(restaurant)                                               
+      @restaurant['dba'] << restaurant.first['dba'].strip
     end
 
 #### GRABS PHONE                                            
-    def phone_num(inspection)    
-      restaurant['phone'] << test.first['phone'].strip
-      restaurant['phone'] = '(%s) %s-%s' % [restaurant['phone'][0,3], restaurant['phone'][3,3], restaurant['phone'][6,4]]
+    def phone_num(restaurant)    
+      @restaurant['phone'] << restaurant.first['phone'].strip
+      @restaurant['phone'] = '(%s) %s-%s' % [@restaurant['phone'][0,3], @restaurant['phone'][3,3], @restaurant['phone'][6,4]]
     end
 
 #### GRABS street                                         
-    def street(inspection)                                               
-      restaurant['street'] << test.first['street'].gsub('  ','').strip
+    def street(restaurant)                                               
+      @restaurant['street'] << restaurant.first['street'].gsub('  ','').strip
     end
 
 ###### GRABS VIOLATION CODES
-    def violation_codes(inspection)
-      violation_codes = test.map do |restaurant|
+    def violation_codes(restaurant)
+      violation_codes = restaurant.map do |restaurant|
         restaurant['violation_code']
       end.compact
       violation_codes.uniq!
 
       violation_codes.each do |result|
-        restaurant['violation_code'] << result
+        @restaurant['violation_code'] << result
       end
     end
 
 #### GRABS zipcode                                         
-    def zipcode(inspection)                                               
-      restaurant['zipcode'] << test.first['zipcode'].strip
+    def zipcode(restaurant)                                               
+      @restaurant['zipcode'] << restaurant.first['zipcode'].strip
     end
 
 #### GRABS restaurant grade                                        
-    def grade(inspection)                                               
-      grades = test.map do |result|
+    def grade(restaurant)                                               
+      grades = restaurant.map do |result|
         result['grade']
       end
       grades.compact!
@@ -103,34 +133,8 @@ class Restaurant < ActiveRecord::Base
       grades.sort!
 
       grades.each do |grade|
-        restaurant['grade'] << grade 
+        @restaurant['grade'] << grade 
       end
     end
-
-
-
-
-###### EMPTY RESTAURANT HASH
-  restaurant = {
-    "boro"=> "",
-    "building"=>"",
-    "grade"=>[],
-    "cuisine_description"=>"",
-    "dba"=>"",
-    "inspection_date"=> [],
-    "phone"=>"",
-    "street"=>"",
-    "violation_code"=>[],
-    "violation_description"=>[],
-    "zipcode"=>""    
-  }
-  
-  
-
-
-
-    end  
-        
-
-  end
+end
 

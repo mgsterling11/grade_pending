@@ -1,47 +1,55 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <strong>Here's your result...</strong>
 
     <p>
       <strong>Name:</strong>
-      <%= @restaurant.name %>
+      <%= @result['dba'] %>
     </p>
     
     <p>
       <strong>Cuisine:</strong>
-      <%= @restaurant.cuisine_type.cuisine_description %>
+      <%= @result['cuisine_description'] %>
     </p>
 
     <p>
       <strong>Inspection date:</strong>
-      <%= @restaurant.inspection_date %>
+      <%= @result['inspection_date'].first %>
     </p>
 
 
     <p>
       <strong>Grade:</strong>
-      <%= @restaurant.grade %>
+      <%= @result['grade'] %>
     </p>
 
     <p>
       <strong>Violation(s):</strong>
-      <%= @restaurant.violation_description.violation_description %>
+      <ul>
+        <% @result['violation_description'].each do |violation| %>
+        <li>
+          <%= violation %>
+        </li>
+        <% end %>
+      </ul>
     </p>
 
     <p>
       <strong>Violation Code(s):</strong>
-      <%= @restaurant.violation_description.violation_code %>
+      <%= @result['violation_code'].first %>
     </p>
 
     <p>
       <strong>Address:</strong>
-      <%= @restaurant.address.building %>
-      <%= @restaurant.address.street %>
-      <%= @restaurant.address.boro %>
-      <%= @restaurant.address.zipcode %>
+      <%= @result['building'] %>
+      <%= @result['street'] %>
+      <%= @result['zipcode'] %>
+      <%= @result['boro'] %>
     </p>
      
     <p>
       <strong>Phone:</strong>
-      <%= @restaurant.address.phone %>
+      <%= @result['phone'] %>
     </p>
