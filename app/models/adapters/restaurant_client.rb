@@ -11,14 +11,9 @@ module Adapters
       @connection = Adapters::DataConnection.new
     end
 
-    def find_restaurants(search)
-      url = build_restaurant_url(search)
-      connection.query(url)
-    end
-
     def build_restaurant_url(search)
-      params = {search_input: search}
-      url_string = "https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$limit=50000&dba=#{params[:search_input]}"
+      url = Search.for(search)
+      connection.query(url)
     end 
 
   end

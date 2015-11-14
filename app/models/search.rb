@@ -1,34 +1,21 @@
 class Search
   attr_accessor :keyword
-  
-  def self.for(word)
-      if @result = []
-        @restaurant_grades = Restaurant.all
-        @result = @restaurant_grades.where(grade: "#{word}")
-      end
-      
-      if @result == []
-        @cuisine_types = CuisineType.all
-        @result = @cuisine_types.where("CUISINE_DESCRIPTION LIKE '%#{word}%'")  
-      end
-      
-      if @result == []
-        @restaurants = Restaurant.all
-        @result = @restaurants.where("NAME LIKE '%#{word}%'") 
-      end
 
-      if @result == []
-        @restaurants = ViolationDescription.all
-        @result = @restaurants.where("VIOLATION_DESCRIPTION LIKE '%#{word}%'")  
-      end
-           
-      if @result == []
-        @addresses = Address.all
-        # binding.pry
-        @result = @addresses.where("BUILDING LIKE '%#{word}%'" || "STREET LIKE '%#{word}%'")  
-      else
-        puts "error message"
-      end
-    @result
+  def self.for(search)
+    search_type = ["dba", "cuisine_description", "boro", "grade", "street", "violation_code", "violation_description", "zipcode"]
+    @result = ""
+
+    x=0
+    while x < search_type.length do 
+      url_string = "https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$limit=50000&#{search_type[x]}=#{search}"
+      @result = self.perform_search(url_string)
+      break if @result != "[]\n"
+      x+=1
+    end
+    url_string
+  end
+
+  def self.perform_search(url_string)
+    @result = RestClient::Request.execute(method: :get, url: url_string)
   end
 end
