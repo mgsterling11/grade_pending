@@ -2,7 +2,19 @@ class SearchController < ApplicationController
   
   def show
     restaurant_data = Adapters::RestaurantClient.new.build_restaurant_url(params['keyword'])
-    binding.pry
+    # sorted_data = restaurant_data.sort_by {|restaurant| restaurant['camis'] }
+
+    # x= 0
+    # sorted_data.each do |restaurant|
+    #   while x < sorted_data.length do  restaurant['camis'] == restaurant['camis']
+    #     restaurant.each_with_object([]) {|hash, a| a << hash }
+    #   end
+    # end
+    # binding.pry
+    # camis_array = restaurant_data.map do |restaurant| 
+    #   restaurant['camis']
+    # end.sort!.uniq!
+    
     @result = Restaurant.new.build_restaurant_hash(restaurant_data) 
     render "/restaurants/show"
   end
@@ -10,33 +22,34 @@ class SearchController < ApplicationController
 
 end
 
- 
+
+
+
+
 
 
 
 
 #### SORT MULTIPLE LISTINGS INTO ONE, USE CAMIS
 
-sorted_restaurants = restaurant_data.sort_by { |restaurant| restaurant['camis'] }
-results = << sorted_restaurants.shift
 
 
-  x=0
-  while x < sorted_restaurants.length do 
-    sorted_restaurants.each do |restaurant|
-      if restaurant['camis']
-      results << restaurant
+#   x=0
+#   while x < sorted_restaurants.length do 
+#     sorted_restaurants.each do |restaurant|
+#       if restaurant['camis']
+#       results << restaurant
       
-      restaurant['camis'] == restaurant['camis']
-    x+=1
-  end
-  url_string
-end
+#       restaurant['camis'] == restaurant['camis']
+#     x+=1
+#   end
+#   url_string
+# end
 
 
 
 
-a.inject(&:merge)
+# a.inject(&:merge)
 
 #   def index
     
