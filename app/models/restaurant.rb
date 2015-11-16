@@ -34,6 +34,16 @@ class Restaurant < ActiveRecord::Base
     }
   end
 
+  def parse_data(restaurants_data)
+    binding.pry
+    results = restaurants_data.map do |restaurant|
+      build_restaurant_hash(restaurant)
+    end
+    results
+  end
+
+
+
   def build_restaurant_hash(restaurant)
     inspection_date(restaurant)
     inspection_results(restaurant)
