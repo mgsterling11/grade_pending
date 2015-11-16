@@ -11,6 +11,7 @@ class SearchController < ApplicationController
     end
 
     @result = Restaurant.new.parse_data(sorted_restaurants) 
+    binding.pry
     render "/restaurants/show"
   end
 

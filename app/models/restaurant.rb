@@ -18,6 +18,8 @@ class Restaurant < ActiveRecord::Base
 
   attr_accessor :restaurant
 
+  @@all = []
+
   def initialize
     @restaurant = {
       "boro"=> "",
@@ -35,8 +37,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def parse_data(restaurants_data)
-    binding.pry
-    results = restaurants_data.map do |restaurant|
+    results = restaurants_data.each do |restaurant|
       build_restaurant_hash(restaurant)
     end
     results
@@ -56,7 +57,8 @@ class Restaurant < ActiveRecord::Base
     violation_codes(restaurant)
     zipcode(restaurant)                                               
     grade(restaurant)
-    @restaurant
+    @@all << @restaurant 
+    @@all
   end
 
 
@@ -65,6 +67,7 @@ class Restaurant < ActiveRecord::Base
       inspection_dates = restaurant.map do |inspection|
         Time.parse(inspection["inspection_date"])
       end
+
       inspection_dates.uniq!.sort! { |a,b| b <=> a }
 
       inspection_dates.each do |result|
