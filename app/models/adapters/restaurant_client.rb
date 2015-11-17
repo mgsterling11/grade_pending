@@ -12,7 +12,7 @@ module Adapters
     end
 
     def build_restaurant_url(search)
-      url = Search.for(search)
+      url = Search.for(search.upcase)
       connection.query(url)
     end 
 
