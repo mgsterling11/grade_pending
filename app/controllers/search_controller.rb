@@ -9,10 +9,14 @@ class SearchController < ApplicationController
         restaurant if restaurant['camis'] == id
       end
     end
-
-    @result = Restaurant.new.parse_data(sorted_restaurants) 
-    binding.pry
-    render "/restaurants/show"
+  
+    @result = sorted_restaurants.map {|restaurant| Restaurant.new.build_restaurant_hash(restaurant) }   
+    
+    if @result.length == 1
+      render "/restaurants/show"
+    else 
+      render "/restaurants/index"
+    end
   end
 
 end

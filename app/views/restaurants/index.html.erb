@@ -1,32 +1,67 @@
-s<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<h1>Listing Restaurants</h1>
+<strong>You had mulitple results...</strong>
+<ul>
+    
+    <% @result.each do |restaurant| %>
+    <p>
+      <br>
+      
+      <p>
+        <strong>Name:</strong>
+        <%= restaurant['dba'] %>
+      </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Inspection date</th>
-      <th>Grade</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <p>
+        <strong>Grade:</strong>
+        <%= restaurant['grade'] %>
+      </p>
 
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.inspection_date %></td>
-        <td><%= restaurant.grade %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <p>
+        <strong>Inspection_date:</strong>
+        <%= restaurant['inspection_date'] %>
+      </p>
 
-<br>
+      <p>
+        <strong>Cuisine:</strong>
+        <%= restaurant['cuisine_description'] %>
+      </p>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+      <p>
+        <strong>Violation(s):</strong>
+      
+        <% restaurant['violation_description'].each do |violation| %>
+        <li>
+          <%= violation %>
+        </li>
+        <% end %>
+      </p>
+      
+      <p>
+        <strong>Violation Code(s):</strong>
+        <%= restaurant['violation_code'] %>
+      </p>
+
+      
+      <p>
+        <strong>Address:</strong>
+        <%= restaurant['building'] %>
+        <%= restaurant['street'] %>
+        <%= restaurant['boro'] %>
+        <%= restaurant['zipcode'] %>
+      </p>
+      
+      <p>
+        <strong>Phone:</strong>
+        <%= restaurant['phone'] %>
+      </p>
+    
+    </p>
+    
+    
+    <%end%>
+  </ul>
+
+
+   
+    

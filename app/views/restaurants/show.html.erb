@@ -6,29 +6,30 @@
 
     <p>
       <strong>Name:</strong>
-      <%= @result['dba'] %>
+
+      <%= @result[0]['dba'] %>
     </p>
     
     <p>
       <strong>Cuisine:</strong>
-      <%= @result['cuisine_description'] %>
+      <%= @result[0]['cuisine_description'] %>
     </p>
 
     <p>
       <strong>Inspection date:</strong>
-      <%= @result['inspection_date'].first %>
+      <%= @result[0]['inspection_date'].first %>
     </p>
 
 
     <p>
       <strong>Grade:</strong>
-      <%= @result['grade'] %>
+      <%= @result[0]['grade'] %>
     </p>
 
     <p>
       <strong>Violation(s):</strong>
       <ul>
-        <% @result['violation_description'].each do |violation| %>
+        <% @result[0]['violation_description'].each do |violation| %>
         <li>
           <%= violation %>
         </li>
@@ -38,18 +39,18 @@
 
     <p>
       <strong>Violation Code(s):</strong>
-      <%= @result['violation_code'].first %>
+      <%= @result[0]['violation_code'].first %>
     </p>
 
     <p>
       <strong>Address:</strong>
-      <%= @result['building'] %>
-      <%= @result['street'] %>
-      <%= @result['zipcode'] %>
-      <%= @result['boro'] %>
+      <%= @result[0]['building'] %>
+      <%= @result[0]['street'] %>
+      <%= @result[0]['zipcode'] %>
+      <%= @result[0]['boro'] %>
     </p>
      
     <p>
       <strong>Phone:</strong>
-      <%= @result['phone'] %>
+      <%= @result[0]['phone'] %>
     </p>

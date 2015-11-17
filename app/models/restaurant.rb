@@ -36,12 +36,12 @@ class Restaurant < ActiveRecord::Base
     }
   end
 
-  def parse_data(restaurants_data)
-    results = restaurants_data.each do |restaurant|
-      build_restaurant_hash(restaurant)
-    end
-    results
-  end
+  # def parse_data(restaurants_data)
+  #   results = restaurants_data.each do |restaurant|
+  #     build_restaurant_hash(restaurant)
+  #   end
+  #   results
+  # end
 
 
 
@@ -58,7 +58,7 @@ class Restaurant < ActiveRecord::Base
     zipcode(restaurant)                                               
     grade(restaurant)
     @@all << @restaurant 
-    @@all
+    @restaurant
   end
 
 
