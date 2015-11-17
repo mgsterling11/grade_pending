@@ -10,7 +10,7 @@ class SearchController < ApplicationController
       end
     end
   
-    @result = sorted_restaurants.map {|restaurant| Restaurant.new.build_restaurant_hash(restaurant) }   
+    @result = sorted_restaurants.map {|restaurant| Restaurant.new(restaurant) }   
     
     if @result.length == 1
       render "/restaurants/show"

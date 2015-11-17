@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104011220) do
+ActiveRecord::Schema.define(version: 20151104024113) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "boro"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20151104011220) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "violation_descriptions", id: false, force: :cascade do |t|

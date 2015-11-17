@@ -7,6 +7,8 @@ require 'rest-client'
 module Adapters
   class RestaurantClient
 
+#convert values into the objects
+
     def connection
       @connection = Adapters::DataConnection.new
     end
