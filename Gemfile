@@ -35,6 +35,11 @@ gem 'bootstrap-sass'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'time_diff'
 
+gem 'twitter-bootswatch-rails', '~> 3.3'
+gem 'twitter-bootswatch-rails-fontawesome', '~> 4.3'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'therubyracer'
+
 # gem 'rest-open-uri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

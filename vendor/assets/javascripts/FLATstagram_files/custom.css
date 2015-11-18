@@ -1,0 +1,132 @@
+/* line 1, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+body {
+  background: #f3f3f3 !important;
+}
+
+/* line 5, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+nav {
+  background: #426b8f !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  position: fixed !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+}
+
+/* line 15, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+footer {
+  background: #7f7f7f;
+  margin: 0;
+  padding: 5px;
+  border-top: 2px solid #a6a6a6;
+}
+
+/* line 22, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+footer h4 {
+  font-weight: 200;
+  color: #bfbfbf;
+  font-size: 14px;
+}
+
+/* line 28, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+footer a, footer a:hover {
+  color: #bfbfbf;
+}
+
+/* line 34, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.feed-wrapper {
+  width: 550px;
+  background: #e6e6e6;
+  margin: 0 auto;
+  border-left: 2px solid #bfbfbf;
+  border-right: 2px solid #bfbfbf;
+  padding: 75px 0 50px;
+}
+
+/* line 43, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.image-wrapper {
+  width: 500px;
+  margin: 0 auto 25px;
+  background: #f3f3f3;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+  overflow: hidden;
+}
+
+/* line 52, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like {
+  border-bottom: 1px solid #b3b3b3;
+  padding: 10px 10px 7px;
+  height: 55px;
+}
+
+/* line 58, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like a:hover {
+  text-decoration: none;
+}
+
+/* line 62, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like-btn {
+  background: #d9d9d9;
+  border-radius: 3px;
+  border: 1px solid #b3b3b3;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+/* line 71, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like-btn:hover {
+  background: #cccccc;
+}
+
+/* line 75, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like-btn span {
+  font-size: 24px;
+  line-height: 33px;
+  margin-left: -1px;
+}
+
+/* line 82, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+span.red-heart {
+  color: #d8271c !important;
+}
+
+/* line 86, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+span.grey-heart {
+  color: #7f7f7f !important;
+}
+
+/* line 90, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.likes-message {
+  line-height: 35px;
+  padding-left: 10px;
+}
+
+/* line 95, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.user {
+  padding: 10px 10px 15px;
+  position: relative;
+}
+
+/* line 100, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.like div {
+  float: left;
+  position: relative;
+}
+
+/* line 105, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.user div {
+  display: inline-block;
+}
+
+/* line 109, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.description div {
+  display: block;
+}
+
+/* line 113, /Users/MichaelSterling/development/Flatiron/rails-jquery-flinstagram-web-0915/app/assets/stylesheets/custom.css.scss */
+.description {
+  padding-left: 10px;
+}
