@@ -6,30 +6,30 @@
 
     <p>
       <strong>Name:</strong>
-<% binding.pry %>
-      <%= @result.restaurant_name %>
+
+      <%= @result.first.restaurant_name %>
     </p>
     
     <p>
       <strong>Cuisine:</strong>
-      <%= @result.cuisine_description %>
+      <%= @result.first.cuisine_description %>
     </p>
 
     <p>
       <strong>Inspection date:</strong>
-      <%= @result[0]['inspection_date'].first %>
+      <%= @result.first.inspection_date %>
     </p>
 
 
     <p>
       <strong>Grade:</strong>
-      <%= @result[0]['grade'] %>
+      <%= @result.first.grade %>
     </p>
 
     <p>
       <strong>Violation(s):</strong>
       <ul>
-        <% @result[0]['violation_description'].each do |violation| %>
+        <% @result.first.inspection_results.each do |violation| %>
         <li>
           <%= violation %>
         </li>
@@ -39,18 +39,18 @@
 
     <p>
       <strong>Violation Code(s):</strong>
-      <%= @result[0]['violation_code'].first %>
+      <%= @result.first.violation_codes.first %>
     </p>
 
     <p>
       <strong>Address:</strong>
-      <%= @result[0]['building'] %>
-      <%= @result[0]['street'] %>
-      <%= @result[0]['zipcode'] %>
-      <%= @result[0]['boro'] %>
+      <%= @result.first.building %>
+      <%= @result.first.street %>
+      <%= @result.first.zipcode %>
+      <%= @result.first.boro %>
     </p>
      
     <p>
       <strong>Phone:</strong>
-      <%= @result[0]['phone'] %>
+      <%= @result.first.phone_num %>
     </p>
